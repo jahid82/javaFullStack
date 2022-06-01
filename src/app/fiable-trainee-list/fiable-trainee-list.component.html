@@ -1,0 +1,27 @@
+<p>fiable-trainee-Component</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Subject</th>
+            <th>Qualified</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let temptrainee of traineeList">
+        <td>{{temptrainee.firstname}}</td>
+        <td>{{temptrainee.lastname}}</td>
+        <td>{{temptrainee.subject}}</td>
+        <td>{{temptrainee.age | currency:'$ '}}</td>
+        <td>
+            <div *ngIf="temptrainee.age>40; else elseBlock">
+                NO
+            </div>
+            <ng-template #elseBlock>YES </ng-template>
+            
+        </td>
+        
+    </tr>
+</table>

@@ -1,0 +1,29 @@
+<p>fiable-trainee-Component</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Designation</th>
+            <th>Credits</th>
+            <th>Eligible For Promotion</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let tempEmployee of employeeList">
+        <td>{{tempEmployee.ID}}</td>
+        <td>{{tempEmployee.Name}}</td>
+        <td>{{tempEmployee.Salary | currency:'$ '}}</td>
+        <td>{{tempEmployee.Designation}}</td>
+        <td>{{tempEmployee.Credits}}</td>
+        <td>
+            <div *ngIf="tempEmployee.Salary>9000 && tempEmployee.Credits>5 ; else elseBlock">
+                Yes
+            </div>
+            <ng-template #elseBlock>No </ng-template>
+            
+        </td>
+        
+    </tr>
+</table>
